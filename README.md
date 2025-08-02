@@ -1,24 +1,4 @@
-# Contentful Products API
-
-A complete backend REST API built with **NestJS**, connected to **Contentful CMS**, that synchronizes, stores, filters, and reports products in a PostgreSQL database. It includes **JWT authentication**, **cron job sync**, and is fully tested with **Jest** and **SuperTest**.
-
-
----
-
-## Features
-
-- **Sync from Contentful** via API
-- **Products REST endpoints** (GET, DELETE, pagination, filters)
-- **Soft delete** support
-- **Reports** for deleted/non-deleted items and top categories
-- **JWT-based authentication**
-- **Unit & e2e tests** with coverage report
-- **Docker support** for local environment
-- **Environment variable validation** with Joi
-- **Cron job** to sync from Contentful hourly
-
----
-
+# Contentful Products API (NestJS + PostgreSQL)
 
 ## Project Description
 This project implements a **Backend API** in **NestJS** that:
@@ -74,9 +54,6 @@ Example `.env` file:
 ```env
 PORT=3000
 JWT_SECRET=supersecret
-
-# Cron job schedule (default = every hour)
-SYNC_CRON=0 * * * *
 
 # PostgreSQL
 DB_HOST=###.###.#.#
@@ -163,20 +140,6 @@ Current coverage:
 
 ---
 
-## Scheduled Sync Job
-
-The system automatically fetches products from Contentful every hour using a cron job. The frequency can be changed via the `SYNC_CRON` variable.
-
-- Default: `0 * * * *`  =>  runs every hour
-- Manual trigger: `POST /api/sync/trigger`
-
-Example response:
-
-```json
-{ "upserts": 99 }
-```
-
----
 
 ## API Testing with Insomnia
 
